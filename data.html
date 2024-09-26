@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ব্যবহারকারীর ডেটা</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">ব্যবহারকারীর তথ্য</h2>
+        <div id="userInfo"></div>
+        <h4>মোট ওভারটাইম এবং টাকা</h4>
+        <p id="totalOTAmount">মোট ওভারটাইম: </p>
+        <p id="totalPay">মোট টাকা: </p>
+    </div>
+
+    <script>
+        // URL থেকে ডেটা রিসিভ করা
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get('username');
+        const cardNumber = params.get('cardNumber');
+        const totalOT = params.get('totalOT');
+        const totalPay = params.get('totalPay');
+
+        // পেজে ডেটা দেখানো
+        document.getElementById('userInfo').innerHTML = `নাম: ${username}<br>কার্ড নম্বর: ${cardNumber}`;
+        document.getElementById('totalOTAmount').textContent = `মোট ওভারটাইম: ${totalOT} ঘন্টা`;
+        document.getElementById('totalPay').textContent = `মোট টাকা: ${totalPay}৳`;
+    </script>
+
+</body></html>
